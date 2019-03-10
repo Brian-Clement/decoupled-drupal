@@ -1,0 +1,4 @@
+name: decoupled-drupal
+recipe: drupal8
+config:
+  webroot: web
