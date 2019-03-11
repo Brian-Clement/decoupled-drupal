@@ -10,3 +10,6 @@ tooling:
 events:
   pre-start:
     - appserver: composer install
+  post-start:
+    # Configure settings.php for Drupal
+    - appserver: cp /app/config/settings.lando.php /app/web/sites/default/settings.php
