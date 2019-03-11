@@ -2,3 +2,11 @@ name: decoupled-drupal
 recipe: drupal8
 config:
   webroot: web
+tooling:
+  install:
+    service: appserver
+    description: "Install Drupal from existing config"
+    cmd: drush site-install --verbose config_installer config_installer_sync_configure_form.sync_directory=../config/sync --account-name=admin --account-pass=admin --yes
+events:
+  pre-start:
+    - appserver: composer install
